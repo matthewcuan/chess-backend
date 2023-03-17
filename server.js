@@ -59,7 +59,7 @@ MongoClient.connect(
     app.use("/api/v1/games", games);
     app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
     
-    server.listen(5000, () => {
+    server.listen(process.env.PORT || 5000, () => {
         console.log("socket listening on port 5000");
     });
 });
