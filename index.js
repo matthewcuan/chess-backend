@@ -12,9 +12,8 @@ import initGame from './socket.js';
 
 dotenv.config()
 const MongoClient = mongodb.MongoClient
-const chess_username = process.env.CHESS_ID
 const chess_password = process.env.CHESS_KEY
-const uri = `mongodb+srv://black:rules@cluster0.mqza9mv.mongodb.net/?retryWrites=true&w=majority`
+const uri = `mongodb+srv://black:${chess_password}@cluster0.mqza9mv.mongodb.net/?retryWrites=true&w=majority`
 
 const port = process.env.PORT || 8000
 
