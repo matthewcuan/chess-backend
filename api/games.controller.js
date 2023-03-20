@@ -2,7 +2,7 @@ import GamesDAO from "../dao/gamesDAO.js";
 
 export default class GamesController {
     // gets all publicly saved games (public tag)
-    // to be displayed on login page
+    // to be displayed on 'login' page
     static async apiGetPublicGames(req, res, next) {
         try {
             let games = await GamesDAO.getPublicGames()
@@ -17,8 +17,8 @@ export default class GamesController {
         }
     }
     
-    // gets all users and publicly saved games
-    // to be displayed on user home page
+    // gets all users games
+    // to be displayed in the 'view games' page
     static async apiGetUserGames(req, res, next) {
         try {
             let id = req.params.user || {}
@@ -81,6 +81,7 @@ export default class GamesController {
     }
     
     // updates game description
+    // not implemented in app
     static async apiUpdateGame(req, res, next) {
         try {
             const game = req.params.id
@@ -109,6 +110,7 @@ export default class GamesController {
     }
 
     // deletes game from db
+    // not implemented in app
     static async apiDeleteGame(req, res, next) {
         try {
             const gameId = req.params.id

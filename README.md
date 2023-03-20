@@ -1,12 +1,12 @@
-## TODO
+[Frontend code](https://github.com/matthewcuan/chess-with-friends-frontend)
 
-[X] Set up mongo
-[X] Set up routes
+- backend code using RESTful API (mongo)
+- access user and game databases for login and game review
 
-## Packages
+## How to use
 
-[ ] uuid (for generating unique ids for users)
-[X] nodemon (for automatically restarting node app when changed)
+- fork or download repo
+- in terminal, run "node server.js" or "nodemon server.js"
 
 ## Server Structure
 
@@ -18,21 +18,4 @@
 ├── dao
 │   ├── usersDAO.js
 │   ├── gamesDAO.js
-├── index.js
-├── server.js
-├── node_modules
-├── package.json
-├── package-lock.json
-└── .gitignore
-
-## Terminal route test
-
-curl -X POST http://localhost:8000/api/v1/games/save -H "Content-Type: application/json" -d '{"title": "test", "type": "public", "player1": "player1", "player2": "player 2", "history": "history"}'
-
-curl -X PUT http://localhost:8000/api/v1/games/game/6407c78f89265e6d5c3f62bf -H "Content-Type: application/json" -d '{"title": "update test"}'
-
-curl -X PUT http://localhost:8000/api/v1/users/changepwd/yoda -H "Content-Type: application/json" -d '{"password": "doggy"}'
-
-curl -X DELETE http://localhost:8000/api/v1/games/game/6407c78f89265e6d5c3f62bf
-
-curl -X GET http://localhost:8000/api/v1/games/player1
+└── server.js

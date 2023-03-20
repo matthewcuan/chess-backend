@@ -3,7 +3,7 @@ import GamesController from "./games.controller.js";
 
 const router = express.Router()
 
-// all possible routes for movie.html
+// routes for game API
 router.route("/public-games").get(GamesController.apiGetPublicGames)
 router.route("/:user").get(GamesController.apiGetUserGames)
 router.route("/save").post(GamesController.apiPostGame)

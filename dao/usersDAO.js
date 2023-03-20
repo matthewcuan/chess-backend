@@ -1,9 +1,7 @@
-import mongodb from 'mongodb';
-
-const ObjectId = mongodb.ObjectID
+// interacts directly with 'users' collection in database
+// functions: addUser, getUser, updateUser
 
 let users
-// TODO: addUser, getUser, getAllUsers
 
 export default class UsersDAO {
     static async injectDB(conn) {

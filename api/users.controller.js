@@ -2,6 +2,8 @@ import UsersDAO from "../dao/usersDAO.js";
 
 export default class UserController {
 
+    // gets user data
+    // called when user logs in
     static async apiGetUser(req, res, next) {
         try {
             let id = req.params.id || {}
@@ -17,6 +19,8 @@ export default class UserController {
         }
     }
 
+    // posts new user data
+    // called when new user is created
     static async apiPostUser(req, res, next) {
         try {
             const user = req.body.username
@@ -44,6 +48,8 @@ export default class UserController {
         } 
     }    
     
+    // updates user password
+    // called when user changes password
     static async apiUpdateUser(req, res, next) {
         try {
             const user = req.params.id

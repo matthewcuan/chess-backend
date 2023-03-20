@@ -1,32 +1,23 @@
-import dotenv from 'dotenv'
-import mongodb from "mongodb"
-import UsersDAO from "./dao/usersDAO.js"
-import GamesDAO from "./dao/gamesDAO.js"
-import express from "express"
-import cors from "cors"
-import users from "./api/users.routes.js"
-import games from "./api/games.routes.js"
-// import { createServer } from "http";
-// import { Server } from "socket.io";
-// import initGame from './socket.js';
+import dotenv from "dotenv";
+import mongodb from "mongodb";
+import express from "express";
+import cors from "cors";
+import UsersDAO from "./dao/usersDAO.js";
+import GamesDAO from "./dao/gamesDAO.js";
+import users from "./api/users.routes.js";
+import games from "./api/games.routes.js";
 
-dotenv.config()
-const MongoClient = mongodb.MongoClient
-const chess_password = process.env.CHESS_KEY
+// for local testing
+dotenv.config();
+
+// connecting to database
+const MongoClient = mongodb.MongoClient;
+const chess_password = process.env.CHESS_KEY;
 const uri = `mongodb+srv://black:${chess_password}@cluster0.mqza9mv.mongodb.net/?retryWrites=true&w=majority`
 
 const port = process.env.PORT || 8000
 
 const app = express();
-// const server = createServer(app);
-// const io = new Server(server, {
-//     cors: {
-//         origin: "https://melodious-speculoos-b36439.netlify.app/",
-//         methods: ["GET", "POST"],
-//         credentials: true,
-//     }
-// });
-
 app.use(cors());
 app.use(express.json());
 
@@ -41,6 +32,8 @@ MongoClient.connect(
     console.error(err.stack)
     process.exit(1)
 })
+
+// injecting API
 .then(async client => {
     await UsersDAO.injectDB(client)
     await GamesDAO.injectDB(client)
@@ -48,20 +41,12 @@ MongoClient.connect(
         console.log(`mongo listening on port ${port}`)
     })
 })
-.then(() => {
-    // io.on("connection", (socket) => {
-    //     console.log('a user connected');
-    //     initGame(io, socket);
-        
-    //   });
 
+// establishing connection to mongo
+.then(() => {
     app.use("/api/v1/users", users);
     app.use("/api/v1/games", games);
     app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
-    
-    // server.listen(process.env.PORT || 5000, () => {
-    //     console.log("socket listening on port 5000");
-    // });
 });
 
 
