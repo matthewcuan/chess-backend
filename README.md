@@ -1,7 +1,7 @@
 [Frontend code](https://github.com/matthewcuan/chess-with-friends-frontend)
 
 ## About
-- backend code using RESTful API (mongo)
+- backend code for chess-with-friends app using RESTful API (mongo)
 - access user and game databases for login and game review
 
 ## To use
