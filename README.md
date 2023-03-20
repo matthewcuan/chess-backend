@@ -7,4 +7,4 @@
 ## To use
 
 - clone or download repo
-- in terminal, run "node server.js" or "nodemon server.js"
+- in terminal, run "node server.js" or "npx nodemon server.js"
