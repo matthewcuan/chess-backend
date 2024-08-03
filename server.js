@@ -12,8 +12,7 @@ dotenv.config();
 
 // connecting to database
 const MongoClient = mongodb.MongoClient;
-const chess_password = process.env.CHESS_KEY;
-const uri = `mongodb+srv://black:${chess_password}@cluster0.mqza9mv.mongodb.net/?retryWrites=true&w=majority`
+const uri = process.env.DB_URI;
 
 const port = process.env.PORT || 8000
 
