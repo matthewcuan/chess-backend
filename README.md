@@ -6,5 +6,7 @@
 
 ## To use
 
+- requires Node 24.19.0 LTS (see .nvmrc — run "nvm use" to switch)
 - clone or download repo
-- in terminal, run "node server.js" or "npx nodemon server.js"
+- in terminal, run "npm install"
+- then run "node server.js" or "npx nodemon server.js"
